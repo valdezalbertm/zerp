@@ -52,6 +52,11 @@ class Period
     private $netWorth;
 
     /**
+     * @var boolean
+     */
+    private $isActive = 0;
+
+    /**
      * @var \DateTime
      */
     private $createdAt;
@@ -231,6 +236,29 @@ class Period
     public function getNetWorth()
     {
         return $this->netWorth;
+    }
+
+    /**
+     * Set isActive
+     *
+     * @param boolean $isActive
+     * @return Period
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    /**
+     * Get isActive
+     *
+     * @return boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive;
     }
 
     /**

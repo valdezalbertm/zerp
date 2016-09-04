@@ -33,6 +33,8 @@ AppBundle\Entity\Period:
             scale: '4'
             nullable: true
             column: net_worth
+        isActive:
+            type: boolean
         createdAt:
             type: datetime
             column: created_at

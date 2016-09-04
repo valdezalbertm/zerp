@@ -24,13 +24,6 @@ AppBundle\Entity\JournalEntryItem:
         dc:
             type: string
             length: 1
-        createdAt:
-            type: datetime
-            column: created_at
-        updatedAt:
-            type: datetime
-            nullable: true
-            column: updated_at
     manyToOne:
         journalEntry:
             targetEntity: JournalEntry

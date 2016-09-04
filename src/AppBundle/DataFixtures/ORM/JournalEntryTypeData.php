@@ -26,10 +26,26 @@ class JournalEntryTypeData extends AbstractFixture implements FixtureInterface, 
         $generalJournal->setCode('general-jounal');
         $manager->persist($generalJournal);
 
+        /* Sales Journal */
+        $salesJournal = new JournalEntryType();
+        $salesJournal->setName('Sales Journal');
+        $salesJournal->setDescription("Sales Transaction journal");
+        $salesJournal->setCode('sales-jounal');
+        $manager->persist($salesJournal);
+
+        /* Purchase Journal */
+        $purchaseJournal = new JournalEntryType();
+        $purchaseJournal->setName('Purchase Journal');
+        $purchaseJournal->setDescription("Purchase Transaction journal");
+        $purchaseJournal->setCode('purchase-jounal');
+        $manager->persist($purchaseJournal);
+
         $manager->flush();
 
         $this->addReference('manual-jounal', $manualJournal);
         $this->addReference('general-jounal', $generalJournal);
+        $this->addReference('sales-jounal', $salesJournal);
+        $this->addReference('purchase-jounal', $purchaseJournal);
     }
 
     public function getOrder()
