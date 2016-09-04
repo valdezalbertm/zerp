@@ -1,0 +1,59 @@
+AppBundle\Entity\JournalEntry:
+    type: entity
+    table: journal_entry
+    repositoryClass: AppBundle\Repository\JournalEntryRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: '255'
+        description:
+            type: text
+            length: 65535
+        date:
+            type: datetime
+            column: date
+        isPosted:
+            type: boolean
+            column: is_posted
+        status:
+            type: string
+            length: '30'
+            nullable: true
+        createdAt:
+            type: datetime
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: true
+            column: updated_at
+    manyToOne:
+        user:
+            targetEntity: User
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+                onDelete: CASCADE
+                fetch: LAZY
+        transaction:
+            targetEntity: Transaction
+            joinColumn:
+                name: transaction_id
+                referencedColumnName: id
+                onDelete: CASCADE
+                fetch: LAZY
+        type:
+            targetEntity: JournalEntryType
+            joinColumn:
+                name: type_id
+                referencedColumnName: id
+                onDelete: CASCADE
+                fetch: LAZY
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAt ]
+        preUpdate: [ setUpdatedAt ]

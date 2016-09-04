@@ -1,0 +1,44 @@
+AppBundle\Entity\JournalEntryItem:
+    type: entity
+    table: journal_entry_item
+    repositoryClass: AppBundle\Repository\JournalEntryItemRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        lineNumber:
+            type: integer
+            column: line_number
+        description:
+            type: string
+            length: '255'
+        amount:
+            type: decimal
+            precision: '14'
+            scale: '4'
+            nullable: true
+            column: amount
+        dc:
+            type: string
+            length: 1
+        createdAt:
+            type: datetime
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: true
+            column: updated_at
+    manyToOne:
+        journalEntry:
+            targetEntity: JournalEntry
+            joinColumn:
+                name: journal_entry_id
+                referencedColumnName: id
+        account:
+            targetEntity: Account
+            joinColumn:
+                name: account_id
+                referencedColumnName: id

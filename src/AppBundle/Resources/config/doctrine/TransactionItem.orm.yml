@@ -1,0 +1,39 @@
+AppBundle\Entity\TransactionItem:
+    type: entity
+    table: transaction_item
+    repositoryClass: AppBundle\Repository\TransactionItemRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        lineNumber:
+            type: integer
+            column: line_number
+        name:
+            type: string
+            length: 255
+        amount:
+            type: decimal
+            precision: '14'
+            scale: '4'
+            nullable: true
+            column: amount
+    manyToOne:
+        transaction:
+            targetEntity: Transaction
+            joinColumn:
+                name: transaction_id
+                referencedColumnName: id
+        debit_account:
+            targetEntity: Account
+            joinColumn:
+                name: debit_account_id
+                referencedColumnName: id
+        credit_account:
+            targetEntity: Account
+            joinColumn:
+                name: credit_account_id
+                referencedColumnName: id

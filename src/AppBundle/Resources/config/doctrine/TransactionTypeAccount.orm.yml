@@ -1,0 +1,25 @@
+AppBundle\Entity\TransactionTypeAccount:
+    type: entity
+    table: transaction_type_account
+    repositoryClass: AppBundle\Repository\TransactionTypeAccountRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        dc:
+            type: string
+            length: 1
+    manyToOne:
+        transactionType:
+            targetEntity: TransactionType
+            joinColumn:
+                onDelete: CASCADE
+                fetch: LAZY
+        account:
+            targetEntity: Account
+            joinColumn:
+                onDelete: CASCADE
+                fetch: LAZY
