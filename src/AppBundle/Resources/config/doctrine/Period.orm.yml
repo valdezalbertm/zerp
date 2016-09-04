@@ -1,0 +1,45 @@
+AppBundle\Entity\Period:
+    type: entity
+    table: period
+    repositoryClass: AppBundle\Repository\PeriodRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: '50'
+        description:
+            type: text
+            length: 65535
+            nullable: true
+        startDate:
+            type: date
+            column: start_date
+        endDate:
+            type: date
+            column: end_date
+        isClosed:
+            type: boolean
+        closedAt:
+            type: datetime
+            nullable: true
+        netWorth:
+            type: decimal
+            precision: '14'
+            scale: '4'
+            nullable: true
+            column: net_worth
+        createdAt:
+            type: datetime
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: true
+            column: updated_at
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAt ]
+        preUpdate: [ setUpdatedAt ]

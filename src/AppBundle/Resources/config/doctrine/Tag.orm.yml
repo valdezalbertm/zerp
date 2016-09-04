@@ -1,0 +1,39 @@
+AppBundle\Entity\Tag:
+    type: entity
+    table: tag
+    repositoryClass: AppBundle\Repository\TagRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: '50'
+            unique: true
+        description:
+            type: text
+            nullable: true
+            length: 65535
+        fontColor:
+            type: string
+            length: '30'
+            nullable: true
+            column: font_color
+        backgroundColor:
+            type: string
+            length: '30'
+            nullable: true
+            column: background_color
+        createdAt:
+            type: datetime
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: true
+            column: updated_at
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAt ]
+        preUpdate: [ setUpdatedAt ]

@@ -1,0 +1,27 @@
+AppBundle\Entity\TransactionTypeGroup:
+    type: entity
+    table: transaction_type_group
+    repositoryClass: AppBundle\Repository\TransactionTypeGroupRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: '255'
+        description:
+            type: text
+            length: 65535
+        createdAt:
+            type: datetime
+            column: created_at
+        updatedAt:
+            type: datetime
+            nullable: true
+            column: updated_at
+    lifecycleCallbacks:
+        prePersist: [ setCreatedAt ]
+        preUpdate: [ setUpdatedAt ]
