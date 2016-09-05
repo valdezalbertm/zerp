@@ -1,0 +1,24 @@
+{
+  "name": "zerp",
+  "version": "1.0.0",
+  "description": "This is a Zerp Project of Albert Valdez",
+  "dependencies": {
+    "admin-lte": "^2.3.6",
+    "font-awesome": "^4.6.3",
+    "moment": "^2.14.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valdezalbertm/zerp.git"
+  },
+  "author": "Albert Valdez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/valdezalbertm/zerp/issues"
+  },
+  "homepage": "https://github.com/valdezalbertm/zerp#readme"
+}
