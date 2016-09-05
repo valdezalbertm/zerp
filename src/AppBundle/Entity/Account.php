@@ -308,27 +308,4 @@ class Account
     {
         return $this->updatedAt;
     }
-
-    /**
-     * Set isCash
-     *
-     * @param boolean $isCash
-     * @return Account
-     */
-    public function setCash($isCash)
-    {
-        $this->isCash = $isCash;
-
-        return $this;
-    }
-
-    /**
-     * Get isCash
-     *
-     * @return boolean
-     */
-    public function isCash()
-    {
-        return $this->isCash;
-    }
 }

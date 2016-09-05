@@ -30,16 +30,6 @@ class JournalEntryItem
     private $dc;
 
     /**
-     * @var \DateTime
-     */
-    private $createdAt;
-
-    /**
-     * @var \DateTime
-     */
-    private $updatedAt;
-
-    /**
      * @var \AppBundle\Entity\JournalEntry
      */
     private $journalEntry;
