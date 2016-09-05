@@ -315,7 +315,7 @@ class Account
      * @param boolean $isCash
      * @return Account
      */
-    public function setIsCash($isCash)
+    public function setCash($isCash)
     {
         $this->isCash = $isCash;
 
@@ -327,7 +327,7 @@ class Account
      *
      * @return boolean
      */
-    public function getIsCash()
+    public function isCash()
     {
         return $this->isCash;
     }

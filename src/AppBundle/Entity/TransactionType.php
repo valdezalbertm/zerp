@@ -155,7 +155,8 @@ class TransactionType
      * @return TransactionType
      * @ORM\PrePersist
      */
-    public function setCreatedAt($createdAt)
+    public function setCreatedAt()
+
     {
         $this->createdAt = new \DateTime();
 
@@ -179,7 +180,7 @@ class TransactionType
      * @return TransactionType
      * @ORM\PreUpdate
      */
-    public function setUpdatedAt($updatedAt)
+    public function setUpdatedAt()
     {
         $this->updatedAt = new \DateTime();
 

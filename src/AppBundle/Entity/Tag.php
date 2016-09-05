@@ -155,7 +155,7 @@ class Tag
      * @return Tag
      * @ORM\PrePersist
      */
-    public function setCreatedAt($createdAt)
+    public function setCreatedAt()
     {
         $this->createdAt = new \DateTime();
 
@@ -179,7 +179,7 @@ class Tag
      * @return Tag
      * @ORM\PreUpdate
      */
-    public function setUpdatedAt($updatedAt)
+    public function setUpdatedAt()
     {
         $this->createdAt = new \DateTime();
 

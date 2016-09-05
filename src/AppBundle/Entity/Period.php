@@ -244,7 +244,7 @@ class Period
      * @param boolean $isActive
      * @return Period
      */
-    public function setIsActive($isActive)
+    public function setActive($isActive)
     {
         $this->isActive = $isActive;
 
@@ -256,7 +256,7 @@ class Period
      *
      * @return boolean
      */
-    public function getIsActive()
+    public function isActive()
     {
         return $this->isActive;
     }
