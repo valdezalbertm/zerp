@@ -175,7 +175,7 @@ class Period
      * @param boolean $isClosed
      * @return Period
      */
-    public function setIsClosed($isClosed)
+    public function setClosed($isClosed)
     {
         $this->isClosed = $isClosed;
 
@@ -187,7 +187,7 @@ class Period
      *
      * @return boolean
      */
-    public function getIsClosed()
+    public function isClosed()
     {
         return $this->isClosed;
     }
@@ -268,7 +268,7 @@ class Period
      * @return Period
      * @ORM\PrePersist
      */
-    public function setCreatedAt($createdAt)
+    public function setCreatedAt()
     {
         $this->createdAt = new \DateTime();
 
@@ -292,7 +292,7 @@ class Period
      * @return Period
      * @ORM\PreUpdate
      */
-    public function setUpdatedAt($updatedAt)
+    public function setUpdatedAt()
     {
         $this->updatedAt = new \DateTime();
 

@@ -211,7 +211,7 @@ class AccountGroup
      * @return AccountGroup
      * @ORM\PrePersist
      */
-    public function setCreatedAt($createdAt)
+    public function setCreatedAt()
     {
         $this->createdAt = new \DateTime();
 
@@ -235,7 +235,7 @@ class AccountGroup
      * @return AccountGroup
      * @ORM\PreUpdate
      */
-    public function setUpdatedAt($updatedAt)
+    public function setUpdatedAt()
     {
         $this->updatedAt = new \DateTime();
 
