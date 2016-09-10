@@ -1,0 +1,22 @@
+{% extends 'layout.html.twig' %}
+
+{% block content_header %}
+    <h1>Account Group <small>New</small></h1>
+    <ol class="breadcrumb">
+        <li><a href="{{ path('account_group_index') }}"><i class="fa fa-dashboard"></i> Account Group</a></li>
+        <li class="active">New</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Create" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('account_group_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

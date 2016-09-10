@@ -1,0 +1,50 @@
+{% extends 'layout.html.twig' %}
+
+{% block content_header %}
+    <h1>Account Group <small>List</small></h1>
+    <ol class="breadcrumb">
+        <li><a href="{{ path('account_group_index') }}"><i class="fa fa-dashboard"></i> Account Group</a></li>
+        <li class="active">Index</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div class="box">
+        <div class="box-body table-responsive no-padding">
+            <table class="table table-hover table-striped">
+                <tbody>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Level</th>
+                        <th>Type</th>
+                        <th>Actions</th>
+                    </tr>
+                    {% for accountGroup in accountGroups %}
+                        <tr>
+                            <td><a href="{{ path('account_group_show', { 'id': accountGroup.id }) }}">{{ accountGroup.id }}</a></td>
+                            <td>{{ accountGroup.name }}</td>
+                            <td style="width:50%">{{ accountGroup.description }}</td>
+                            <td>{{ accountGroup.level }}</td>
+                            <td>{{ accountGroup.type }}</td>
+                            <td>
+                                <div class="btn-group">
+                                    <a class="btn btn-success btn-sm" href="{{ path('account_group_show', { 'id': accountGroup.id }) }}"><i class="fa fa-eye"></i> Show</a>
+                                    <a class="btn btn-primary btn-sm" href="{{ path('account_group_edit', { 'id': accountGroup.id }) }}"><i class="fa fa-edit"></i> Edit</a>
+                                </div>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <!-- /.box-body -->
+      </div>
+
+    <ul>
+        <li>
+            <a href="{{ path('account_group_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'layout.html.twig' %}
+
+{% block content_header %}
+    <h1>Account Group <small>List</small></h1>
+    <ol class="breadcrumb">
+        <li><a href="{{ path('account_group_index') }}"><i class="fa fa-dashboard"></i> Account Group</a></li>
+        <li class="active">Index</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+
+    {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+        <input type="submit" value="Edit" />
+    {{ form_end(edit_form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('account_group_index') }}">Back to the list</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
