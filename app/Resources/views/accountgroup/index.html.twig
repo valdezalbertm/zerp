@@ -4,7 +4,7 @@
     <h1>Account Group <small>List</small></h1>
     <ol class="breadcrumb">
         <li><a href="{{ path('account_group_index') }}"><i class="fa fa-dashboard"></i> Account Group</a></li>
-        <li class="active">Index</li>
+        <li class="active">List</li>
     </ol>
 {% endblock %}
 
@@ -12,20 +12,22 @@
     <div class="box">
         <div class="box-body table-responsive no-padding">
             <table class="table table-hover table-striped">
-                <tbody>
+                <thead>
                     <tr>
                         <th>ID</th>
                         <th>Name</th>
-                        <th>Description</th>
+                        <th style="width:50%">Description</th>
                         <th>Level</th>
                         <th>Type</th>
                         <th>Actions</th>
                     </tr>
+                </thead>
+                <tbody>
                     {% for accountGroup in accountGroups %}
                         <tr>
                             <td><a href="{{ path('account_group_show', { 'id': accountGroup.id }) }}">{{ accountGroup.id }}</a></td>
                             <td>{{ accountGroup.name }}</td>
-                            <td style="width:50%">{{ accountGroup.description }}</td>
+                            <td>{{ accountGroup.description }}</td>
                             <td>{{ accountGroup.level }}</td>
                             <td>{{ accountGroup.type }}</td>
                             <td>
@@ -38,8 +40,7 @@
                     {% endfor %}
                 </tbody>
             </table>
-        </div>
-        <!-- /.box-body -->
+        </div><!-- /.box-body -->
       </div>
 
     <ul>

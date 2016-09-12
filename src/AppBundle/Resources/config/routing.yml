@@ -1,0 +1,8 @@
+app_account_group:
+    resource: "@AppBundle/Resources/config/routing/accountgroup.yml"
+    prefix:   /account_group
+
+app_account:
+    resource: "@AppBundle/Resources/config/routing/account.yml"
+    prefix:   /account
+

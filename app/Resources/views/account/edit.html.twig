@@ -1,0 +1,94 @@
+{% extends 'layout.html.twig' %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{{ asset('template/plugins/select2/select2.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('template/plugins/iCheck/all.css') }}">
+    <style type="text/css">
+        .btn-social {text-align: center;}
+        .iradio_flat-aero {margin-left: 10px; margin-right: 2px;}
+    </style>
+{% endblock %}
+
+{% block content_header %}
+    <h1>Account <small>Edit</small></h1>
+    <ol class="breadcrumb">
+        <li><a href="{{ path('account_group_index') }}"><i class="fa fa-dashboard"></i> Account</a></li>
+        <li class="active">Index</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        {{ form_start(edit_form) }}
+            <div class="col-lg-10 col-md-12 col-xs-12">
+                <div class="box box-solid box-primary">
+                    <div class="box-header">
+                        <h3 class="box-title"><i class="fa fa-list"></i> Account</h3>
+                    </div><!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="form-group">
+                            {{ form_label(edit_form.name) }}
+                            {{ form_widget(edit_form.name, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(edit_form.description) }}
+                            {{ form_widget(edit_form.description, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(edit_form.type) }}
+                            {{ form_widget(edit_form.type, {'attr': {'class': 'form-control select2'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(edit_form.dc) }}
+                            {{ form_widget(edit_form.dc) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(edit_form.initialBalance) }}
+                            {{ form_widget(edit_form.initialBalance, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(edit_form.code) }}
+                            {{ form_widget(edit_form.code, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(edit_form.isCash) }}
+                            {{ form_widget(edit_form.isCash, {'attr': {'class': 'flat-red'}}) }}
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(edit_form.group) }}
+                            {{ form_widget(edit_form.group, {'attr': {'class': 'form-control'}}) }}
+                        </div>
+                    </div><!-- /.box-body -->
+                </div><!-- /.box -->
+            </div><!-- /.col -->
+            <div class="col-lg-2 col-md-12 col-xs-12">
+                <br />
+                <button type="submit" class="btn bg-blue btn-social btn-block"><i class="fa fa-edit"></i> Update</button><br ><br />
+            </div><!-- /.col -->
+        {{ form_rest(edit_form) }}
+        {{ form_end(edit_form) }}
+    </div><!-- /.row -->
+
+    <ul>
+        <li>
+            <a href="{{ path('account_index') }}">Back to the list</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
+
+{% block js %}
+    <script src="{{ asset('template/plugins/select2/select2.full.min.js') }}"></script>
+    <script src="{{ asset('template/plugins/iCheck/icheck.min.js') }}"></script>
+    <script type="text/javascript">
+        $(".select2").select2();
+        $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+            checkboxClass: 'icheckbox_flat-aero',
+            radioClass: 'iradio_flat-aero'
+        });
+    </script>
+{% endblock %}

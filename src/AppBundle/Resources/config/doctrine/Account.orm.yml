@@ -48,7 +48,7 @@ AppBundle\Entity\Account:
             targetEntity: AccountGroup
             joinColumn:
                 onDelete: CASCADE
-                fetch: LAZY
+                fetch: EAGER
     lifecycleCallbacks:
         prePersist: [ setCreatedAt ]
         preUpdate: [ setUpdatedAt ]
