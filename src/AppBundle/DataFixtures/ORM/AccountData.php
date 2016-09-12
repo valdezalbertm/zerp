@@ -142,7 +142,7 @@ class AccountData extends AbstractFixture implements FixtureInterface, OrderedFi
         $personalRetainedEarning->setGroup($retainedEarning);
         $personalRetainedEarning->setName('Personal Retained Earnings');
         $personalRetainedEarning->setDescription("Retained earnings after the company closed the book");
-        $personalRetainedEarning->setCode('001');
+        $personalRetainedEarning->setCode('002');
         $personalRetainedEarning->setDc('C');
         $personalRetainedEarning->setType('O');
         $manager->persist($personalRetainedEarning);

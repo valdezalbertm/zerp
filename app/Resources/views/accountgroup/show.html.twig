@@ -1,5 +1,13 @@
 {% extends 'layout.html.twig' %}
 
+{% block content_header %}
+    <h1>Account Group <small>Show</small></h1>
+    <ol class="breadcrumb">
+        <li><a href="{{ path('account_group_index') }}"><i class="fa fa-dashboard"></i> Account Group</a></li>
+        <li class="active">Show</li>
+    </ol>
+{% endblock %}
+
 {% block content %}
     <h1>AccountGroup</h1>
 
