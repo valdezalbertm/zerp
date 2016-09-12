@@ -46,3 +46,14 @@
 
 # Backup entities generated with doctrine:generate:entities command
 */Entity/*~
+
+# Node Modules
+web/node_modules
+
+# Config.php
+web/config.php
+
+# .htaccess
+app/.htaccess
+src/.htaccess
+web/.htaccess

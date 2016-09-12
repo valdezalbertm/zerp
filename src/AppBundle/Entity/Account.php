@@ -268,7 +268,7 @@ class Account
      * @return Account
      * @ORM\PrePersist
      */
-    public function setCreatedAt($createdAt)
+    public function setCreatedAt()
     {
         $this->createdAt = new \DateTime();
 
@@ -292,7 +292,7 @@ class Account
      * @return Account
      * @ORM\PreUpdate
      */
-    public function setUpdatedAt($updatedAt)
+    public function setUpdatedAt()
     {
         $this->updatedAt = new \DateTime();
 
@@ -307,28 +307,5 @@ class Account
     public function getUpdatedAt()
     {
         return $this->updatedAt;
-    }
-
-    /**
-     * Set isCash
-     *
-     * @param boolean $isCash
-     * @return Account
-     */
-    public function setIsCash($isCash)
-    {
-        $this->isCash = $isCash;
-
-        return $this;
-    }
-
-    /**
-     * Get isCash
-     *
-     * @return boolean 
-     */
-    public function getIsCash()
-    {
-        return $this->isCash;
     }
 }

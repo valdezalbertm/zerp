@@ -221,7 +221,7 @@ class JournalEntry
      * @param boolean $isPosted
      * @return JournalEntry
      */
-    public function setIsPosted($isPosted)
+    public function setPosted($isPosted)
     {
         $this->isPosted = $isPosted;
 
@@ -233,7 +233,7 @@ class JournalEntry
      *
      * @return boolean
      */
-    public function getIsPosted()
+    public function isPosted()
     {
         return $this->isPosted;
     }
@@ -268,7 +268,7 @@ class JournalEntry
      * @return JournalEntry
      * @ORM\PrePersist
      */
-    public function setCreatedAt($createdAt)
+    public function setCreatedAt()
     {
         $this->createdAt = new \DateTime();
 
@@ -292,7 +292,7 @@ class JournalEntry
      * @return JournalEntry
      * @ORM\PreUpdate
      */
-    public function setUpdatedAt($updatedAt)
+    public function setUpdatedAt()
     {
         $this->updatedAt = new \DateTime();
 

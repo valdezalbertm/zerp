@@ -147,7 +147,7 @@ class Transaction
      * @param boolean $isPosted
      * @return Transaction
      */
-    public function setIsPosted($isPosted)
+    public function setPosted($isPosted)
     {
         $this->isPosted = $isPosted;
 
@@ -159,7 +159,7 @@ class Transaction
      *
      * @return boolean
      */
-    public function getIsPosted()
+    public function isPosted()
     {
         return $this->isPosted;
     }
@@ -170,7 +170,7 @@ class Transaction
      * @param boolean $isCanceled
      * @return Transaction
      */
-    public function setIsCanceled($isCanceled)
+    public function setCanceled($isCanceled)
     {
         $this->isCanceled = $isCanceled;
 
@@ -182,7 +182,7 @@ class Transaction
      *
      * @return boolean
      */
-    public function getIsCanceled()
+    public function isCanceled()
     {
         return $this->isCanceled;
     }
@@ -342,7 +342,7 @@ class Transaction
      * @return Transaction
      * @ORM\PrePersist
      */
-    public function setCreatedAt($createdAt)
+    public function setCreatedAt()
     {
         $this->createdAt = new \DateTime();
 
@@ -366,7 +366,7 @@ class Transaction
      * @return Transaction
      * @ORM\PreUpdate
      */
-    public function setUpdatedAt($updatedAt)
+    public function setUpdatedAt()
     {
         $this->updatedAt = new \DateTime();
 
