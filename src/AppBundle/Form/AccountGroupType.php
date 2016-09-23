@@ -17,15 +17,6 @@ class AccountGroupType extends AbstractType
         $builder
             ->add('name')
             ->add('description')
-            ->add('type', 'choice', array(
-                'choices' => array(
-                    'A' => 'Asset',
-                    'L' => 'Liabilities',
-                    'O' => 'Owner\'s Equity',
-                    'R' => 'Revenue',
-                    'E' => 'Expense',
-                )
-            ))
             ->add('parent', 'entity', array(
                 'class' => 'AppBundle:AccountGroup',
                 'choice_label' => 'name',
