@@ -1,3 +1,7 @@
+app_security:
+    resource: "@AppBundle/Resources/config/routing/security.yml"
+    prefix:   /
+
 app_account_group:
     resource: "@AppBundle/Resources/config/routing/accountgroup.yml"
     prefix:   /account_group
@@ -6,3 +10,14 @@ app_account:
     resource: "@AppBundle/Resources/config/routing/account.yml"
     prefix:   /account
 
+app_transaction:
+    resource: "@AppBundle/Resources/config/routing/transaction.yml"
+    prefix:   /transaction
+
+app_transaction_type:
+    resource: "@AppBundle/Resources/config/routing/transactiontype.yml"
+    prefix:   /transaction_type
+
+app_transaction_type_group:
+    resource: "@AppBundle/Resources/config/routing/transactiontypegroup.yml"
+    prefix:   /transaction_type_group
