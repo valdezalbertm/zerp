@@ -1,0 +1,12 @@
+# Login
+login:
+    path:  /login
+    defaults: { _controller: AppBundle:Security:login }
+    methods: GET
+
+login_check:
+    path:   /login_check
+    methods: POST
+logout:
+    path:   /logout
+    methods: GET

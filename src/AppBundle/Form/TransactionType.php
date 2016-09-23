@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class AccountGroupType extends AbstractType
+class TransactionType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -17,10 +17,14 @@ class AccountGroupType extends AbstractType
         $builder
             ->add('name')
             ->add('description')
-            ->add('parent', 'entity', array(
-                'class' => 'AppBundle:AccountGroup',
-                'choice_label' => 'name',
-            ))
+            ->add('date', 'date')
+            // ->add('isPosted')
+            // ->add('postDate', 'datetime')
+            // ->add('isCanceled')
+            // ->add('status')
+            // ->add('user')
+            ->add('type')
+            ->add('tags')
         ;
     }
 
@@ -30,7 +34,7 @@ class AccountGroupType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\AccountGroup'
+            'data_class' => 'AppBundle\Entity\Transaction'
         ));
     }
 }

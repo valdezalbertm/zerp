@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>TransactionType</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ transactionType.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ transactionType.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ transactionType.description }}</td>
+            </tr>
+            <tr>
+                <th>Code</th>
+                <td>{{ transactionType.code }}</td>
+            </tr>
+            <tr>
+                <th>Createdat</th>
+                <td>{% if transactionType.createdAt %}{{ transactionType.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Updatedat</th>
+                <td>{% if transactionType.updatedAt %}{{ transactionType.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('transaction_type_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('transaction_type_edit', { 'id': transactionType.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

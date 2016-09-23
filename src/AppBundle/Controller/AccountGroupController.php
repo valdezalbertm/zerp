@@ -6,7 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AppBundle\Entity\AccountGroup;
 use AppBundle\Form\AccountGroupType;
-
+use Symfony\Component\HttpKernel\Exception\HttpException;
 /**
  * AccountGroup controller.
  *
@@ -51,7 +51,7 @@ class AccountGroupController extends Controller
                 $level = 0;
                 $code = $em->getRepository('AppBundle:AccountGroup')->getCode($accountGroup->getParent());
             }
-
+            $accountGroup->setType($accountGroup->getParent()->getType());
             $accountGroup->setLevel($level);
             $accountGroup->setCode($code);
             $em->persist($accountGroup);
@@ -89,9 +89,22 @@ class AccountGroupController extends Controller
         $deleteForm = $this->createDeleteForm($accountGroup);
         $editForm = $this->createForm('AppBundle\Form\AccountGroupType', $accountGroup);
         $editForm->handleRequest($request);
+        $em = $this->getDoctrine()->getManager();
+
+        /* Check if the Parent passed exists in Parent Group ID */
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+            /* Determine the level and set */
+            if ($accountGroup->getParent()) {
+                $level = $accountGroup->getParent()->getLevel() + 1;
+                $code = $em->getRepository('AppBundle:AccountGroup')->getCode($accountGroup->getParent());
+            } else {
+                $level = 0;
+                $code = $em->getRepository('AppBundle:AccountGroup')->getCode($accountGroup->getParent());
+            }
+            $accountGroup->setType($accountGroup->getParent()->getType());
+            $accountGroup->setCode($code);
+
             $em->persist($accountGroup);
             $em->flush();
 
