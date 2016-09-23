@@ -17,7 +17,8 @@ class LoadUserData extends AbstractFixture implements FixtureInterface, OrderedF
         $user->setPassword('password');
         $user->setFirstName('Albert');
         $user->setMiddleName('Miniano');
-        $user->setEmail('albertwap11@yahoo.com');
+        $user->setEmail('albertwap11@test.com');
+        $user->setContactNumber('09161234567');
         $user->setLastName('Valdez');
         $user->setLastLogin(date('Y-m-d H:i:s'));
 
