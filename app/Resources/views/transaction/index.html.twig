@@ -1,0 +1,61 @@
+{% extends 'layout.html.twig' %}
+
+{% block content_header %}
+    <h1>Transaction <small>List</small></h1>
+    <ol class="breadcrumb">
+        <li><a href="{{ path('transaction_index') }}"><i class="fa fa-dashboard"></i> Transaction</a></li>
+        <li class="active">List</li>
+    </ol>
+{% endblock %}
+
+{% block content %}
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Date</th>
+                <th>Isposted</th>
+                <th>Postdate</th>
+                <th>Iscanceled</th>
+                <th>Status</th>
+                <th>Createdat</th>
+                <th>Updatedat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for transaction in transactions %}
+            <tr>
+                <td><a href="{{ path('transaction_show', { 'id': transaction.id }) }}">{{ transaction.id }}</a></td>
+                <td>{{ transaction.name }}</td>
+                <td>{{ transaction.description }}</td>
+                <td>{% if transaction.date %}{{ transaction.date|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if transaction.isPosted %}Yes{% else %}No{% endif %}</td>
+                <td>{% if transaction.postDate %}{{ transaction.postDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if transaction.isCanceled %}Yes{% else %}No{% endif %}</td>
+                <td>{{ transaction.status }}</td>
+                <td>{% if transaction.createdAt %}{{ transaction.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if transaction.updatedAt %}{{ transaction.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('transaction_show', { 'id': transaction.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('transaction_edit', { 'id': transaction.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('transaction_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
