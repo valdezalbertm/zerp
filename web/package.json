@@ -5,6 +5,7 @@
   "dependencies": {
     "admin-lte": "^2.3.6",
     "font-awesome": "^4.6.3",
+    "ionicons": "^3.0.0",
     "moment": "^2.14.1"
   },
   "devDependencies": {},
