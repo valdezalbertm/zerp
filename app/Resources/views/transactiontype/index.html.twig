@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>TransactionType list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Code</th>
+                <th>Createdat</th>
+                <th>Updatedat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for transactionType in transactionTypes %}
+            <tr>
+                <td><a href="{{ path('transaction_type_show', { 'id': transactionType.id }) }}">{{ transactionType.id }}</a></td>
+                <td>{{ transactionType.name }}</td>
+                <td>{{ transactionType.description }}</td>
+                <td>{{ transactionType.code }}</td>
+                <td>{% if transactionType.createdAt %}{{ transactionType.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if transactionType.updatedAt %}{{ transactionType.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('transaction_type_show', { 'id': transactionType.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('transaction_type_edit', { 'id': transactionType.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('transaction_type_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
